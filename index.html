@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Werewolves Game</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <div v-if="showLanding" id="landingPage">
+            <h1><i class="fab fa-wolf-pack-battalion fa-cog"></i> Werewolves</h1>
+                <div class="center" id="introduction">
+                    <p>
+                        A simple page where a group can manage a Werewolves' match. 
+                        If you don't know the rules, or want to read it for the group 
+                        <a class="redFontColor" target="_blank" href="https://en.wikipedia.org/wiki/The_Werewolves_of_Millers_Hollow#The_rules">click here</a>. 
+                        For start a match, press the start button below.
+                        <br /><br />
+                        <button v-on:click="startMatch" class="btn btn-block">Start a match!</button>
+                    </p>
+                </div>
+        
+                <div class="footer">
+                    <p><b>Developed by: </b> Juan Susana, {{ currentYear }}</p>
+                </div>
+        </div>
+
+        <div class="hide" id="matchSettings">
+            <h2><i class="fab fa-wolf-pack-battalion fa-cog"></i> Werewolves - match settings</h2>
+            <table class="center" id="settingsGrids">
+                <tr>
+                    <td>
+                        How many players are joining this match? &nbsp; <input type="number" class="numberInput" min="3" v-model="players">
+                        <br />
+                        How many wolves are going to be? &nbsp; <input type="number" class="numberInput" min="3" v-model="wolves"> <span class="miniText"> (<b>suggested quantity: </b> {{ suggestedWolves }}) </span>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><b>{{ villagers }}</b></td>
+                                <td> &nbsp; villagers &nbsp;</td>
+                                <td><i class="fa fa-users"></i></td>
+                            </tr>
+                            <tr>
+                                <td><b>{{ wolves }}</b></td>
+                                <td> &nbsp; wolves &nbsp;</td>
+                                <td><i class="fa fa-dog"></i></td>
+                            </tr>
+                            <tr>
+                                <td><b>1</b></td>
+                                <td> &nbsp; seer &nbsp;</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td><b>1</b></td>
+                                <td> &nbsp; witch &nbsp;</td>
+                                <td><i class="fas fa-hat-wizard"></i></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <button v-on:click="startMatch" class="btn btn-block">Start a match!</button>
+        </div>
+    </div>
+    <script src="Vue.js"></script>
+    <script src="Main.js"></script>
+</body>
+</html>
